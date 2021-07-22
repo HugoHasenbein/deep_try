@@ -35,7 +35,7 @@ This is identical to calling
     object.class.name.to_s
 ```
     
-but without failing. If any of the functions return nil, nil is returned as if
+but without failing. If any of the methods return nil or don't exist, then nil is returned as if
 
 ```ruby
     object&.class&.name&.to_s
@@ -53,6 +53,12 @@ then use deep_try
 
 ```ruby
     object.deep_try(*methods)
+```
+
+which has the same effect like
+
+```ruby
+    object.method_1&.method_2&.method_3
 ```
 
 ## Contributing
