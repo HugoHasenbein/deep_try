@@ -20,11 +20,4 @@
 #
 
 require "deep_try/version"
-
-module DeepTry
-  class Object
-    def deep_try(*fields)
-      fields.inject(self) {|obj,field| obj.try(field.to_s.to_sym)}
-    end #def
-  end
-end
+require "deep_try/object"
