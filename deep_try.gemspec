@@ -5,6 +5,7 @@ Gem::Specification.new do |spec|
   spec.version       = DeepTry::VERSION
   spec.authors       = ["Stephan Wenzel"]
   spec.email         = ["stephan.wenzel@drwpatent.de"]
+  spec.license       = 'GPL-2.0-only'
 
   spec.summary       = %q{deep_try works like try, but with an arbitrary long list of methods}
   spec.description   = %q{Use deep_try with any objects like try, but with an arbitrary long list of methods, example: object(:class, :name, :to_s)}
