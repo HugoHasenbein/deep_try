@@ -1,6 +1,6 @@
 # encoding: utf-8
 #
-# utilities for ruby hashes and ruby arrays
+# deep_try works like try, but with an arbitrary long list of methods
 #
 # Copyright © 2021 Stephan Wenzel <stephan.wenzel@drwpatent.de>
 #
@@ -19,11 +19,6 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 
-require "hash_base/hash/apply"
-require "hash_base/hash/zip_out"
-require "hash_base/hash/grouping"
-require "hash_base/hash/to_table"
-
-require "hash_base/array/to_text"
-require "hash_base/array/to_html"
-require "hash_base/array/grouping"
+module DeepTry
+  VERSION = "0.1.5"
+end

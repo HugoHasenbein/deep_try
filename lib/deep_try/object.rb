@@ -19,6 +19,8 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 
-module HashBase
-  VERSION = "0.1.1"
+class Object
+  def deep_try(*fields)
+    fields.inject(self) {|obj,field| obj.try(field.to_s.to_sym)}
+  end #def
 end
