@@ -1,6 +1,6 @@
 # encoding: utf-8
 #
-# deep_try works like try, but with an arbitrary long list of methods
+# utilities for ruby hashes and ruby arrays
 #
 # Copyright © 2021 Stephan Wenzel <stephan.wenzel@drwpatent.de>
 #
@@ -19,5 +19,30 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 
-require "deep_try/version"
-require "deep_try/object"
+class Array
+
+  ########################################################################################
+  #
+  # converts array of hashes to one hash with elements in array
+  #
+  ########################################################################################
+  class ArrayRowIsNotAHash  < StandardError; end
+  
+  def to_list
+    # test, if each element is a hash
+    each do |hash|
+      raise ArrayRowIsNotAHash unless hash.is_a?(Hash)
+    end
+    # extract all keys from all hashes
+    keys = map do |hash|
+      hash.keys
+    end.flatten.uniq
+    # now extract value for each key in each hash
+    map do |hash|
+      keys.map do |key|
+        hash[key]
+      end
+    end.unshift(keys)
+  end #def
+  
+end
